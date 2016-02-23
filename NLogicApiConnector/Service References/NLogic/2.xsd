@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://nlogic.ca/analyticsService/2.0" elementFormDefault="qualified" targetNamespace="http://nlogic.ca/analyticsService/2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://tvppm-api.nlogic.ca/soap/2.0?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NLogic.Analytics.Contracts.V2" />
+  <xs:import schemaLocation="https://tvppm-api.nlogic.ca/soap/2.0?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="GetReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="arguments" nillable="true" type="tns:ReportRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ReportRequest">
+    <xs:sequence>
+      <xs:element name="Audiences" nillable="true" type="tns:ArrayOfAudience" />
+      <xs:element name="DateRanges" nillable="true" type="tns:ArrayOfDateRange" />
+      <xs:element minOccurs="0" name="DaypartArguments" nillable="true" type="tns:DaypartArguments" />
+      <xs:element minOccurs="0" name="Dayparts" nillable="true" type="tns:ArrayOfDaypart" />
+      <xs:element minOccurs="0" name="ExcludeAudienceOverlaps" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ExcludePrimaryAudienceOverlaps" type="xs:boolean">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NLogic.Analytics.Contracts.V2" minOccurs="0" name="GroupByFields" nillable="true" type="q1:ArrayOfVehicleFieldType" />
+      <xs:element minOccurs="0" name="LCID" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Markets" nillable="true" type="q2:ArrayOfint" />
+      <xs:element minOccurs="0" name="PlanningArguments" nillable="true" type="tns:PlanningArguments" />
+      <xs:element minOccurs="0" name="ProgramArguments" nillable="true" type="tns:ProgramArguments" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NLogic.Analytics.Contracts.V2" minOccurs="0" name="RequestedCumulativeStats" nillable="true" type="q3:ArrayOfStatType" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/NLogic.Analytics.Contracts.V2" name="RequestedStats" nillable="true" type="q4:ArrayOfStatType" />
+      <xs:element minOccurs="0" name="SharePercentArguments" nillable="true" type="tns:SharePercentArguments" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Stations" nillable="true" type="q5:ArrayOfint" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/NLogic.Analytics.Contracts.V2" name="Type" type="q6:ReportType" />
+      <xs:element name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportRequest" nillable="true" type="tns:ReportRequest" />
+  <xs:complexType name="ArrayOfAudience">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Audience" nillable="true" type="tns:Audience" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAudience" nillable="true" type="tns:ArrayOfAudience" />
+  <xs:complexType name="Audience">
+    <xs:sequence>
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AgeRange" nillable="true" type="q7:ArrayOfint" />
+      <xs:element minOccurs="0" name="AttributeValues" nillable="true" type="tns:ArrayOfDemographicAttributeValues" />
+      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Gender" nillable="true" type="q8:ArrayOfint" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Audience" nillable="true" type="tns:Audience" />
+  <xs:complexType name="ArrayOfDemographicAttributeValues">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DemographicAttributeValues" nillable="true" type="tns:DemographicAttributeValues" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDemographicAttributeValues" nillable="true" type="tns:ArrayOfDemographicAttributeValues" />
+  <xs:complexType name="DemographicAttributeValues">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:int" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="Values" nillable="true" type="q9:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DemographicAttributeValues" nillable="true" type="tns:DemographicAttributeValues" />
+  <xs:complexType name="ArrayOfDateRange">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DateRange" nillable="true" type="tns:DateRange" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDateRange" nillable="true" type="tns:ArrayOfDateRange" />
+  <xs:complexType name="DateRange">
+    <xs:sequence>
+      <xs:element name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DateRange" nillable="true" type="tns:DateRange" />
+  <xs:complexType name="DaypartArguments">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/NLogic.Analytics.Contracts.V2" name="TimeType" type="q10:TimeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DaypartArguments" nillable="true" type="tns:DaypartArguments" />
+  <xs:complexType name="ArrayOfDaypart">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Daypart" nillable="true" type="tns:Daypart" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDaypart" nillable="true" type="tns:ArrayOfDaypart" />
+  <xs:complexType name="Daypart">
+    <xs:sequence>
+      <xs:element name="Components" nillable="true" type="tns:ArrayOfDaypartComponent" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Daypart" nillable="true" type="tns:Daypart" />
+  <xs:complexType name="ArrayOfDaypartComponent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DaypartComponent" nillable="true" type="tns:DaypartComponent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDaypartComponent" nillable="true" type="tns:ArrayOfDaypartComponent" />
+  <xs:complexType name="DaypartComponent">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="DaysOfWeek" nillable="true" type="q11:ArrayOfint" />
+      <xs:element name="FromHour" type="xs:int" />
+      <xs:element name="FromMinute" type="xs:int" />
+      <xs:element name="ToHour" type="xs:int" />
+      <xs:element name="ToMinute" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DaypartComponent" nillable="true" type="tns:DaypartComponent" />
+  <xs:complexType name="PlanningArguments">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MinimumReachViews" nillable="true" type="xs:int" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="TargetGRPsPerStationPerDaypart" nillable="true" type="q12:ArrayOfArrayOfdouble" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlanningArguments" nillable="true" type="tns:PlanningArguments" />
+  <xs:complexType name="ProgramArguments">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MinimumAirings" type="xs:int" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProgramCodeExclude" nillable="true" type="q13:ArrayOfint" />
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProgramCodeInclude" nillable="true" type="q14:ArrayOfint" />
+      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProgramNameExclude" nillable="true" type="q15:ArrayOfstring" />
+      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProgramNameInclude" nillable="true" type="q16:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProgramArguments" nillable="true" type="tns:ProgramArguments" />
+  <xs:complexType name="SharePercentArguments">
+    <xs:sequence>
+      <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="StationsDenominator" nillable="true" type="q17:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SharePercentArguments" nillable="true" type="tns:SharePercentArguments" />
+  <xs:element name="GetReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetReportResult" nillable="true" type="tns:ReportResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ReportResponse">
+    <xs:sequence>
+      <xs:element name="AudienceInformation" nillable="true" type="tns:ArrayOfAudienceInformation" />
+      <xs:element minOccurs="0" name="CumulativeStatsPerAudience" nillable="true" type="tns:ArrayOfResultValues">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/NLogic.Analytics.Contracts.V2" minOccurs="0" name="ErrorCode" type="q18:ValidationErrorCode" />
+      <xs:element name="Markets" nillable="true" type="tns:ArrayOfMarket" />
+      <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Messages" nillable="true" type="q19:ArrayOfstring" />
+      <xs:element minOccurs="0" name="Results" nillable="true" type="tns:ArrayOfResultRecord" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/NLogic.Analytics.Contracts.V2" name="Status" type="q20:ResultStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportResponse" nillable="true" type="tns:ReportResponse" />
+  <xs:complexType name="ArrayOfAudienceInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AudienceInformation" nillable="true" type="tns:AudienceInformation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAudienceInformation" nillable="true" type="tns:ArrayOfAudienceInformation" />
+  <xs:complexType name="AudienceInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="MetricsPerMarket" nillable="true" type="tns:ArrayOfUniverseAndSample" />
+      <xs:element minOccurs="0" name="OverlapsPrevious" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OverlapsPrimary" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubsetOfPrevious" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubsetOfPrimary" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AudienceInformation" nillable="true" type="tns:AudienceInformation" />
+  <xs:complexType name="ArrayOfUniverseAndSample">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UniverseAndSample" nillable="true" type="tns:UniverseAndSample" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUniverseAndSample" nillable="true" type="tns:ArrayOfUniverseAndSample" />
+  <xs:complexType name="UniverseAndSample">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Sample" type="xs:int" />
+      <xs:element minOccurs="0" name="Universe" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UniverseAndSample" nillable="true" type="tns:UniverseAndSample" />
+  <xs:complexType name="ArrayOfResultValues">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResultValues" nillable="true" type="tns:ResultValues" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResultValues" nillable="true" type="tns:ArrayOfResultValues" />
+  <xs:complexType name="ResultValues">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PerMarket" nillable="true" type="tns:ArrayOfStats" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultValues" nillable="true" type="tns:ResultValues" />
+  <xs:complexType name="ArrayOfStats">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Stats" nillable="true" type="tns:Stats" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStats" nillable="true" type="tns:ArrayOfStats" />
+  <xs:complexType name="Stats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AMA" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CumulativeReach" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="CumulativeReachPercent" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="DailyReach" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="DailyReachPercent" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="EstimatedAverageFrequency" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="EstimatedImpressions" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="EstimatedReachPercent" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Rating" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="SharePercent" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="WeeklyReach" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="WeeklyReachPercent" nillable="true" type="xs:double">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Stats" nillable="true" type="tns:Stats" />
+  <xs:complexType name="ArrayOfMarket">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Market" nillable="true" type="tns:Market" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMarket" nillable="true" type="tns:ArrayOfMarket" />
+  <xs:complexType name="Market">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="IsUserSelectable" type="xs:boolean" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Market" nillable="true" type="tns:Market" />
+  <xs:complexType name="ArrayOfResultRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResultRecord" nillable="true" type="tns:ResultRecord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResultRecord" nillable="true" type="tns:ArrayOfResultRecord" />
+  <xs:complexType name="ResultRecord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DaypartLabel" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Duration" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="EndTime" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="EpisodeAirDate" nillable="true" type="xs:dateTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="EpisodeTitle" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="FirstAirDate" nillable="true" type="xs:dateTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="LastAirDate" nillable="true" type="xs:dateTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="NumAired" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ProgramCode" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ProgramName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="StartTime" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="StationCode" nillable="true" type="xs:int">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="StationName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="StatsPerAudience" nillable="true" type="tns:ArrayOfResultValues" />
+      <xs:element minOccurs="0" name="Weekdays" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultRecord" nillable="true" type="tns:ResultRecord" />
+  <xs:element name="GetMinMaxAvailableDates">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMinMaxAvailableDatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMinMaxAvailableDatesResult" nillable="true" type="tns:DateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMinMaxLoadedDates">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMinMaxLoadedDatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMinMaxLoadedDatesResult" nillable="true" type="tns:DateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMinMaxConfirmedDates">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMinMaxConfirmedDatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMinMaxConfirmedDatesResult" nillable="true" type="tns:DateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPredefinedAudiences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LCID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPredefinedAudiencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPredefinedAudiencesResult" nillable="true" type="tns:ArrayOfAudience" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMarkets">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LCID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMarketsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetMarketsResult" nillable="true" type="tns:ArrayOfMarket" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullCoverageMarkets">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LCID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullCoverageMarketsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetFullCoverageMarketsResult" nillable="true" type="tns:ArrayOfMarket" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPredefinedDateRanges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LCID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPredefinedDateRangesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPredefinedDateRangesResult" nillable="true" type="tns:ArrayOfDateRange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPredefinedDayparts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LCID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPredefinedDaypartsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPredefinedDaypartsResult" nillable="true" type="tns:ArrayOfDaypart" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDemographics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LCID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDemographicsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDemographicsResult" nillable="true" type="tns:ArrayOfDemographicCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfDemographicCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DemographicCategory" nillable="true" type="tns:DemographicCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDemographicCategory" nillable="true" type="tns:ArrayOfDemographicCategory" />
+  <xs:complexType name="DemographicCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attributes" nillable="true" type="tns:ArrayOfDemographicAttribute" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValidFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValidTo" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DemographicCategory" nillable="true" type="tns:DemographicCategory" />
+  <xs:complexType name="ArrayOfDemographicAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DemographicAttribute" nillable="true" type="tns:DemographicAttribute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDemographicAttribute" nillable="true" type="tns:ArrayOfDemographicAttribute" />
+  <xs:complexType name="DemographicAttribute">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DemographicAttribute" nillable="true" type="tns:DemographicAttribute" />
+  <xs:element name="GetAudienceCompositionAudiences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LCID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAudienceCompositionAudiencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAudienceCompositionAudiencesResult" nillable="true" type="tns:ArrayOfAudience" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStations">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStationsResult" nillable="true" type="tns:ArrayOfStation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfStation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Station" nillable="true" type="tns:Station" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStation" nillable="true" type="tns:ArrayOfStation" />
+  <xs:complexType name="Station">
+    <xs:sequence>
+      <xs:element name="HasProgramSchedules" type="xs:boolean" />
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Station" nillable="true" type="tns:Station" />
+  <xs:element name="GetStationsToMarkets">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStationsToMarketsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStationsToMarketsResult" nillable="true" type="tns:ArrayOfStationToMarket" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfStationToMarket">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StationToMarket" nillable="true" type="tns:StationToMarket" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStationToMarket" nillable="true" type="tns:ArrayOfStationToMarket" />
+  <xs:complexType name="StationToMarket">
+    <xs:sequence>
+      <xs:element name="MarketId" type="xs:int" />
+      <xs:element name="StationId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StationToMarket" nillable="true" type="tns:StationToMarket" />
+  <xs:element name="GetStationGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LCID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStationGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStationGroupsResult" nillable="true" type="tns:ArrayOfStationGroup" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfStationGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StationGroup" nillable="true" type="tns:StationGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStationGroup" nillable="true" type="tns:ArrayOfStationGroup" />
+  <xs:complexType name="StationGroup">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StationGroup" nillable="true" type="tns:StationGroup" />
+  <xs:element name="GetStationGroupCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LCID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStationGroupCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStationGroupCategoriesResult" nillable="true" type="tns:ArrayOfStationGroupCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfStationGroupCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StationGroupCategory" nillable="true" type="tns:StationGroupCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStationGroupCategory" nillable="true" type="tns:ArrayOfStationGroupCategory" />
+  <xs:complexType name="StationGroupCategory">
+    <xs:sequence>
+      <xs:element name="Id" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StationGroupCategory" nillable="true" type="tns:StationGroupCategory" />
+  <xs:element name="GetStationGroupsToCategories">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStationGroupsToCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStationGroupsToCategoriesResult" nillable="true" type="tns:ArrayOfStationGroupToCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfStationGroupToCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StationGroupToCategory" nillable="true" type="tns:StationGroupToCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStationGroupToCategory" nillable="true" type="tns:ArrayOfStationGroupToCategory" />
+  <xs:complexType name="StationGroupToCategory">
+    <xs:sequence>
+      <xs:element name="CategoryId" type="xs:int" />
+      <xs:element name="GroupId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StationGroupToCategory" nillable="true" type="tns:StationGroupToCategory" />
+  <xs:element name="GetStationGroupsToStations">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStationGroupsToStationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStationGroupsToStationsResult" nillable="true" type="tns:ArrayOfStationGroupToStation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfStationGroupToStation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StationGroupToStation" nillable="true" type="tns:StationGroupToStation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStationGroupToStation" nillable="true" type="tns:ArrayOfStationGroupToStation" />
+  <xs:complexType name="StationGroupToStation">
+    <xs:sequence>
+      <xs:element name="GroupId" type="xs:int" />
+      <xs:element name="StationId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StationGroupToStation" nillable="true" type="tns:StationGroupToStation" />
+</xs:schema>

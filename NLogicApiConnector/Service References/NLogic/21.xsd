@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NLogic.Analytics.Contracts.V2" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NLogic.Analytics.Contracts.V2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://tvppm-api.nlogic.ca/soap/2.0?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="TimeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Local" />
+      <xs:enumeration value="Station" />
+      <xs:enumeration value="EST" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TimeType" nillable="true" type="tns:TimeType" />
+  <xs:complexType name="ArrayOfVehicleFieldType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VehicleFieldType" type="tns:VehicleFieldType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehicleFieldType" nillable="true" type="tns:ArrayOfVehicleFieldType" />
+  <xs:simpleType name="VehicleFieldType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ProgramName" />
+      <xs:enumeration value="ProgramCode" />
+      <xs:enumeration value="StationName" />
+      <xs:enumeration value="StationCode" />
+      <xs:enumeration value="StartTime" />
+      <xs:enumeration value="EndTime" />
+      <xs:enumeration value="Date" />
+      <xs:enumeration value="EpisodeTitle" />
+      <xs:enumeration value="Weekdays" />
+      <xs:enumeration value="Duration" />
+      <xs:enumeration value="NumAired" />
+      <xs:enumeration value="FirstDate" />
+      <xs:enumeration value="LastDate" />
+      <xs:enumeration value="DaypartLabel" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VehicleFieldType" nillable="true" type="tns:VehicleFieldType" />
+  <xs:complexType name="ArrayOfStatType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StatType" type="tns:StatType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStatType" nillable="true" type="tns:ArrayOfStatType" />
+  <xs:simpleType name="StatType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AMA" />
+      <xs:enumeration value="Rating" />
+      <xs:enumeration value="CumulativeReach" />
+      <xs:enumeration value="SharePercent" />
+      <xs:enumeration value="EstimatedReachPercent" />
+      <xs:enumeration value="EstimatedAverageFrequency" />
+      <xs:enumeration value="EstimatedImpressions" />
+      <xs:enumeration value="CumulativeReachPercent" />
+      <xs:enumeration value="WeeklyReach" />
+      <xs:enumeration value="WeeklyReachPercent" />
+      <xs:enumeration value="DailyReach" />
+      <xs:enumeration value="DailyReachPercent" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StatType" nillable="true" type="tns:StatType" />
+  <xs:simpleType name="ReportType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Program" />
+      <xs:enumeration value="Daypart" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReportType" nillable="true" type="tns:ReportType" />
+  <xs:simpleType name="ValidationErrorCode">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Success">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="DateRangeListEmpty">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="DateRangeStartAfterEnd">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="NetworkListEmpty">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="NetworkListUnknownCode">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="DayPartListEmpty">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="DayPartInvalid">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">32</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="MarketListEmpty">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">64</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="MarketListTooLong">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">128</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="PlanningSelectionInvalid">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">256</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="UnsupportedStatsField">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">512</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="SharePercentSelectionInvalid">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1024</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Unauthorized">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1073741824</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="ValidationErrorCode" nillable="true" type="tns:ValidationErrorCode" />
+  <xs:simpleType name="ResultStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ok" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="Warning" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ResultStatus" nillable="true" type="tns:ResultStatus" />
+</xs:schema>

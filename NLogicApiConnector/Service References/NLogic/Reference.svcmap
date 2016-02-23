@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6e8a4571-47c3-49c8-9e98-8a583153079e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://tvppm-api.nlogic.ca/soap/2.0?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="2.xsd" MetadataType="Schema" ID="a660b6aa-d2ca-425d-8eed-ee5c89ff59b0" SourceId="1" SourceUrl="https://tvppm-api.nlogic.ca/soap/2.0?xsd=xsd0" />
+    <MetadataFile FileName="21.xsd" MetadataType="Schema" ID="8a26c463-f3ac-4097-97e0-8ffd44384a28" SourceId="1" SourceUrl="https://tvppm-api.nlogic.ca/soap/2.0?xsd=xsd3" />
+    <MetadataFile FileName="22.xsd" MetadataType="Schema" ID="05cdd44e-a09c-43a1-b6d5-825ef6ab676b" SourceId="1" SourceUrl="https://tvppm-api.nlogic.ca/soap/2.0?xsd=xsd2" />
+    <MetadataFile FileName="2.wsdl" MetadataType="Wsdl" ID="f571f19d-7000-44a4-b728-c477ef290b07" SourceId="1" SourceUrl="https://tvppm-api.nlogic.ca/soap/2.0?wsdl=wsdl0" />
+    <MetadataFile FileName="AnalyticsEngine.wsdl" MetadataType="Wsdl" ID="c0ccf5bc-30f2-4bcd-a456-f3f62311cb35" SourceId="1" SourceUrl="https://tvppm-api.nlogic.ca/soap/2.0?wsdl" />
+    <MetadataFile FileName="21.wsdl" MetadataType="Wsdl" ID="bd21f383-1d09-4a59-91a4-fc13398675f6" SourceId="1" SourceUrl="https://tvppm-api.nlogic.ca/soap/2.0?wsdl=wsdl1" />
+    <MetadataFile FileName="23.xsd" MetadataType="Schema" ID="28a2c1de-363a-4e21-b911-3db1a90421b6" SourceId="1" SourceUrl="https://tvppm-api.nlogic.ca/soap/2.0?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

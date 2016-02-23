@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://nlogic.ca/analyticsService/2.0" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://nlogic.ca/analyticsService/2.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://nlogic.ca/analyticsService/2.0/Imports">
+      <xsd:import schemaLocation="https://tvppm-api.nlogic.ca/soap/2.0?xsd=xsd0" namespace="http://nlogic.ca/analyticsService/2.0" />
+      <xsd:import schemaLocation="https://tvppm-api.nlogic.ca/soap/2.0?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://tvppm-api.nlogic.ca/soap/2.0?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://tvppm-api.nlogic.ca/soap/2.0?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NLogic.Analytics.Contracts.V2" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAnalyticsService_GetReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReport" />
+  </wsdl:message>
+  <wsdl:message name="IAnalyticsService_GetReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetMinMaxAvailableDates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMinMaxAvailableDates" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetMinMaxAvailableDates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMinMaxAvailableDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetMinMaxLoadedDates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMinMaxLoadedDates" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetMinMaxLoadedDates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMinMaxLoadedDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetMinMaxConfirmedDates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMinMaxConfirmedDates" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetMinMaxConfirmedDates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMinMaxConfirmedDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetPredefinedAudiences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPredefinedAudiences" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetPredefinedAudiences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPredefinedAudiencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetMarkets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarkets" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetMarkets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMarketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetFullCoverageMarkets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullCoverageMarkets" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetFullCoverageMarkets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullCoverageMarketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetPredefinedDateRanges_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPredefinedDateRanges" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetPredefinedDateRanges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPredefinedDateRangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetPredefinedDayparts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPredefinedDayparts" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetPredefinedDayparts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPredefinedDaypartsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetDemographics_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDemographics" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetDemographics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDemographicsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetAudienceCompositionAudiences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAudienceCompositionAudiences" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetAudienceCompositionAudiences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAudienceCompositionAudiencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStations" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStationsToMarkets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationsToMarkets" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStationsToMarkets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationsToMarketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStationGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationGroups" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStationGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStationGroupCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationGroupCategories" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStationGroupCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationGroupCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStationGroupsToCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationGroupsToCategories" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStationGroupsToCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationGroupsToCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStationGroupsToStations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationGroupsToStations" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceDataService_GetStationGroupsToStations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationGroupsToStationsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAnalyticsService">
+    <wsdl:operation name="GetReport">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IAnalyticsService/GetReport" message="tns:IAnalyticsService_GetReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IAnalyticsService/GetReportResponse" message="tns:IAnalyticsService_GetReport_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IReferenceDataService">
+    <wsdl:operation name="GetMinMaxAvailableDates">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetMinMaxAvailableDates" message="tns:IReferenceDataService_GetMinMaxAvailableDates_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetMinMaxAvailableDatesResponse" message="tns:IReferenceDataService_GetMinMaxAvailableDates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMinMaxLoadedDates">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetMinMaxLoadedDates" message="tns:IReferenceDataService_GetMinMaxLoadedDates_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetMinMaxLoadedDatesResponse" message="tns:IReferenceDataService_GetMinMaxLoadedDates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMinMaxConfirmedDates">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetMinMaxConfirmedDates" message="tns:IReferenceDataService_GetMinMaxConfirmedDates_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetMinMaxConfirmedDatesResponse" message="tns:IReferenceDataService_GetMinMaxConfirmedDates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefinedAudiences">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetPredefinedAudiences" message="tns:IReferenceDataService_GetPredefinedAudiences_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetPredefinedAudiencesResponse" message="tns:IReferenceDataService_GetPredefinedAudiences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMarkets">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetMarkets" message="tns:IReferenceDataService_GetMarkets_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetMarketsResponse" message="tns:IReferenceDataService_GetMarkets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullCoverageMarkets">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetFullCoverageMarkets" message="tns:IReferenceDataService_GetFullCoverageMarkets_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetFullCoverageMarketsResponse" message="tns:IReferenceDataService_GetFullCoverageMarkets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefinedDateRanges">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetPredefinedDateRanges" message="tns:IReferenceDataService_GetPredefinedDateRanges_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetPredefinedDateRangesResponse" message="tns:IReferenceDataService_GetPredefinedDateRanges_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPredefinedDayparts">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetPredefinedDayparts" message="tns:IReferenceDataService_GetPredefinedDayparts_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetPredefinedDaypartsResponse" message="tns:IReferenceDataService_GetPredefinedDayparts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDemographics">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetDemographics" message="tns:IReferenceDataService_GetDemographics_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetDemographicsResponse" message="tns:IReferenceDataService_GetDemographics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAudienceCompositionAudiences">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetAudienceCompositionAudiences" message="tns:IReferenceDataService_GetAudienceCompositionAudiences_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetAudienceCompositionAudiencesResponse" message="tns:IReferenceDataService_GetAudienceCompositionAudiences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStations">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStations" message="tns:IReferenceDataService_GetStations_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStationsResponse" message="tns:IReferenceDataService_GetStations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStationsToMarkets">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStationsToMarkets" message="tns:IReferenceDataService_GetStationsToMarkets_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStationsToMarketsResponse" message="tns:IReferenceDataService_GetStationsToMarkets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStationGroups">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStationGroups" message="tns:IReferenceDataService_GetStationGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStationGroupsResponse" message="tns:IReferenceDataService_GetStationGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStationGroupCategories">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStationGroupCategories" message="tns:IReferenceDataService_GetStationGroupCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStationGroupCategoriesResponse" message="tns:IReferenceDataService_GetStationGroupCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStationGroupsToCategories">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStationGroupsToCategories" message="tns:IReferenceDataService_GetStationGroupsToCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStationGroupsToCategoriesResponse" message="tns:IReferenceDataService_GetStationGroupsToCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStationGroupsToStations">
+      <wsdl:input wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStationGroupsToStations" message="tns:IReferenceDataService_GetStationGroupsToStations_InputMessage" />
+      <wsdl:output wsaw:Action="http://nlogic.ca/analyticsService/2.0/IReferenceDataService/GetStationGroupsToStationsResponse" message="tns:IReferenceDataService_GetStationGroupsToStations_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
